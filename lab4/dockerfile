@@ -1,0 +1,13 @@
+FROM centos:7
+MAINTAINER Maharshi Pathak
+
+#ensure that you install any required software or dependencies, for example your webserver, libraries etc.
+RUN yum -y install httpd  
+
+#this is a placeholder. Ensure that you copy all files
+COPY index.html /var/www/html/ 
+COPY 7d94e0.css /var/www/html/
+
+#expose port 80 if you are serving content over http and run the webserver
+EXPOSE 80
+CMD apachectl -D FOREGROUND
